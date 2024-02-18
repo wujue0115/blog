@@ -1,0 +1,10 @@
+node_modules/
+auto-imports.d.ts
+
+# Misc
+.vscode
+.DS_Store
+
+# vitepress build output
+.vitepress/dist/
+.vitepress/cache/

@@ -1,0 +1,6 @@
+{
+  "include": [".vitepress/**/*", ".vitepress/**/*.vue", "auto-imports.d.ts"],
+  "compilerOptions": {
+    "lib": ["ES6", "DOM"]
+  }
+}
