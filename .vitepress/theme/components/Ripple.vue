@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { TRippleOptions } from "wowfy";
 import { useData } from "vitepress";
 import { Wowfy } from "wowfy";
 
@@ -18,7 +19,7 @@ const rippleAnimationLoop = () => {
 };
 
 const rippleInit = () => {
-  const defaultOptions = {
+  const defaultOptions: TRippleOptions = {
     sizeRatio: 0.01,
     duration: "2s",
     event: "dblclick",
