@@ -2,33 +2,43 @@
 import Typer from "super-typer";
 
 const introRef = ref<HTMLElement>();
+const isLooping = ref(false);
+
 const typer = new Typer(
   { speed: 70 },
   {
     onChange(text) {
-      introRef.value!.innerText = text + "|";
+      introRef.value && (introRef.value.innerText = text + "|");
     },
   }
 );
 
 const typeLoop = () => {
+  if (!isLooping.value) {
+    typer.reset();
+    return;
+  }
+
   typer
     .type("嗨！歡迎來到我的部落格！")
-    .wait(1500)
-    .type("\n我是 Wujue。一位網頁前端工程師。")
-    .wait(1500)
-    .type("\n在這裡我會分享一些學習筆記、技術研究、生活紀錄等文章。", {
-      speed: 120,
-    })
-    .wait(1500)
+    .wait(800)
+    .type("\n我是 Wujue，一位網頁前端工程師。")
+    .wait(800)
+    .type("\n在這裡我會分享一些學習筆記、技術研究、生活紀錄等文章。")
+    .wait(800)
     .type("\n如果有任何問題歡迎聯繫我哦～")
-    .wait(3000)
+    .wait(1500)
     .backspace(-1, { speed: 10 })
     .wait(500, {}, { onAfterChange: typeLoop });
 };
 
 onMounted(() => {
+  isLooping.value = true;
   typeLoop();
+});
+
+onUnmounted(() => {
+  isLooping.value = false;
 });
 </script>
 
@@ -90,5 +100,3 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<style></style>
