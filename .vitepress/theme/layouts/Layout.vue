@@ -6,6 +6,7 @@ import VPNav from "vitepress/dist/client/theme-default/components/VPNav.vue";
 import Home from "../pages/Home.vue";
 import NotFound from "../pages/NotFound.vue";
 import Ripple from "../components/Ripple.vue";
+import DocBefore from "../layouts/DocBefore.vue";
 
 const { Layout } = DefaultTheme;
 const { isDark, page, frontmatter } = useData();
@@ -51,7 +52,9 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   <main>
     <Home v-if="isHome" />
     <NotFound v-else-if="isNotFound" />
-    <Layout v-else />
+    <Layout v-else>
+      <template #doc-before><DocBefore /></template>
+    </Layout>
 
     <template v-if="isHome || isNotFound">
       <VPNav />
