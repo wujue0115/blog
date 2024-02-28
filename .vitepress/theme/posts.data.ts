@@ -1,9 +1,11 @@
+import type { ContentData } from "vitepress";
 import { createContentLoader } from "vitepress";
 import { formatDate } from "./utils";
 
 interface Post {
   title: string;
   url: string;
+  estimatedReadingTime?: string;
   date: {
     time: number;
     string: string;
@@ -20,20 +22,22 @@ interface Post {
 declare const data: Post[];
 export { data };
 
-const getAllTags = (raw) => {
+const transformTags = (tags: string | string[] | unknown) => {
+  if (Array.isArray(tags)) {
+    return tags;
+  }
+
+  if (typeof tags === "string") {
+    return tags.split(",").map((tag) => tag.trim());
+  }
+
+  return [];
+};
+
+const getAllTags = (raw: ContentData[]) => {
   const result = Array.from(
     new Set<string>(
-      raw.flatMap(({ frontmatter }) => {
-        if (Array.isArray(frontmatter.tags)) {
-          return frontmatter.tags;
-        }
-
-        if (typeof frontmatter.tags === "string") {
-          return frontmatter.tags.split(",").map((tag) => tag.trim());
-        }
-
-        return [];
-      })
+      raw.flatMap(({ frontmatter }) => transformTags(frontmatter.tags))
     )
   );
 
@@ -49,9 +53,10 @@ export default createContentLoader("posts/**/*.md", {
       title: frontmatter.title,
       url,
       excerpt: excerpt ? excerpt.split("\n")[1] : undefined,
+      estimatedReadingTime: frontmatter.estimatedReadingTime,
       date: formatDate(frontmatter.date),
       lastUpdated: formatDate(frontmatter.lastUpdated),
-      tags: frontmatter.tags,
+      tags: transformTags(frontmatter.tags),
       allTags,
     }));
   },
