@@ -19,6 +19,9 @@ devDependencies:
   '@iconify-json/line-md':
     specifier: ^1.1.36
     version: 1.1.36
+  '@iconify-json/material-symbols':
+    specifier: ^1.1.73
+    version: 1.1.73
   '@iconify-json/simple-icons':
     specifier: ^1.1.91
     version: 1.1.91
@@ -748,6 +751,12 @@ packages:
 
   /@iconify-json/line-md@1.1.36:
     resolution: {integrity: sha512-DzZQm0qSEtjixdbTSX4+PvTPHWwYJrZFvOWITMkLG12XIEzDUpIRMcZ0bUhegU0qDIM5c6X2FKHCgjhK4fI7NA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/material-symbols@1.1.73:
+    resolution: {integrity: sha512-3ioEMQvxUR0eWg3jCxeydowS7xlqJzUHqeKJg29Z5HN15ZBYniQhHYrDCRpmFjopgwxox9OIsoonBiBSLV4EMA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
