@@ -18,7 +18,6 @@ export default defineConfig({
         link: "/learning/vue/2024-03-02-experience-in-developing-a-blog-with-vitepress",
       },
     ],
-
     sidebar: {
       "/learning/": [
         {
@@ -60,5 +59,26 @@ export default defineConfig({
     ssr: {
       noExternal: ["super-typer", "wowfy"],
     },
+  },
+  transformPageData(pageData, { siteConfig }) {
+    pageData.frontmatter.head ??= [];
+    const metas = [
+      {
+        name: "description",
+        content: pageData.description,
+      },
+      {
+        name: "og:title",
+        content: pageData.title,
+      },
+      {
+        name: "og:description",
+        content: pageData.description,
+      },
+    ];
+
+    metas.forEach((metaInfo) => {
+      pageData.frontmatter.head.push(["meta", metaInfo]);
+    });
   },
 });

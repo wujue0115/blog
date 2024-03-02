@@ -1,5 +1,6 @@
 ---
 title: 使用 VitePress 開發部落格的心得
+description: 這篇文章主要是分享我使用 VitePress 開發部落格的心得，包括技術選擇、頁面開發等等。
 date: 2024-03-02
 lastUpdated: 2024-03-02
 estimatedReadingTime: 10 min
