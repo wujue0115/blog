@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useData } from "vitepress";
 import { useDate } from "../composables/useDate";
+import Chip from "../components/atoms/Chip.vue";
 
 const { formatDate } = useDate();
 
@@ -16,13 +17,7 @@ const { frontmatter } = useData();
       class="mt-3 self-center flex flex-wrap justify-start gap-2"
       md="self-center mt-0"
     >
-      <div
-        class="rounded-full bg-[var(--vp-c-brand-soft)] px-3 py-0.5"
-        v-for="tag in frontmatter.tags"
-        :key="tag"
-      >
-        {{ tag }}
-      </div>
+      <Chip v-for="tag in frontmatter.tags" :key="tag">{{ tag }}</Chip>
     </div>
     <div text="left sm [var(--vp-c-text-2)]">
       <p flex items-center>
