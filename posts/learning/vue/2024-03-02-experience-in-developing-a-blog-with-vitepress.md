@@ -60,7 +60,7 @@ Astro 聽說是一個很優秀的框架，並且支援用 Vue、React、Svelte �
 
 #### Ripple 背景
 
-背景我想使用我的個套件 [Wowfy](https://wowfyjs.com/) 所提供的 [Ripple](https://wowfyjs.com/effects/ripple.html) 特效來呈現。
+背景我想使用我的套件 [Wowfy](https://wowfyjs.com/) 所提供的 [Ripple](https://wowfyjs.com/effects/ripple.html) 特效來呈現。
 
 首先添加一個基本的 Ripple 特效：
 
