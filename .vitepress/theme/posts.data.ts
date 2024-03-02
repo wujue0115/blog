@@ -1,25 +1,11 @@
 import type { ContentData } from "vitepress";
+import type { TPost } from "./types";
 import { createContentLoader } from "vitepress";
-import { formatDate } from "./utils";
+import { useDate } from "./composables/useDate";
 
-interface Post {
-  title: string;
-  url: string;
-  estimatedReadingTime?: string;
-  date: {
-    time: number;
-    string: string;
-  };
-  lastUpdated: {
-    time: number;
-    string: string;
-  };
-  excerpt: string | undefined;
-  tags?: string[];
-  allTags?: string[];
-}
+const { formatDate } = useDate();
 
-declare const data: Post[];
+declare const data: TPost[];
 export { data };
 
 const transformTags = (tags: string | string[] | unknown) => {
@@ -46,10 +32,11 @@ const getAllTags = (raw: ContentData[]) => {
 
 export default createContentLoader("posts/**/*.md", {
   excerpt: true,
-  transform(raw): Post[] {
+  transform(raw): TPost[] {
+    const posts = raw.filter(({ frontmatter }) => !frontmatter.page);
     const allTags = getAllTags(raw);
 
-    return raw.map(({ url, frontmatter, excerpt }) => ({
+    return posts.map(({ url, frontmatter, excerpt }) => ({
       title: frontmatter.title,
       url,
       excerpt: excerpt ? excerpt.split("\n")[1] : undefined,

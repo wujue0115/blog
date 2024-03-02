@@ -1,6 +1,4 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-page: home
+page: post-preview
 ---
-
-

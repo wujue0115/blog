@@ -20,6 +20,7 @@ const typeLoop = () => {
   }
 
   typer
+    .wait(300)
     .type("嗨！歡迎來到我的部落格！")
     .wait(800)
     .type("\n我是 Wujue，一位網頁前端工程師。")

@@ -5,14 +5,16 @@ import DefaultTheme from "vitepress/theme";
 import VPNav from "vitepress/dist/client/theme-default/components/VPNav.vue";
 import Home from "../pages/Home.vue";
 import NotFound from "../pages/NotFound.vue";
+import PostPreview from "../pages/PostPreview.vue";
 import Ripple from "../components/Ripple.vue";
 import DocBefore from "../layouts/DocBefore.vue";
 
 const { Layout } = DefaultTheme;
 const { isDark, page, frontmatter } = useData();
 
-const isHome = computed(() => frontmatter.value.layout === "home");
+const isHome = computed(() => frontmatter.value.page === "home");
 const isNotFound = computed(() => page.value.isNotFound);
+const isPostPreview = computed(() => frontmatter.value.page === "post-preview");
 
 const enableTransitions = () =>
   "startViewTransition" in document &&
@@ -52,13 +54,14 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   <main>
     <Home v-if="isHome" />
     <NotFound v-else-if="isNotFound" />
+    <PostPreview v-else-if="isPostPreview" />
     <Layout v-else>
-      <template #doc-before><DocBefore /></template>
+      <template #doc-before><DocBefore v-if="!isPostPreview" /></template>
     </Layout>
 
-    <template v-if="isHome || isNotFound">
+    <template v-if="isHome || isNotFound || isPostPreview">
       <VPNav />
-      <Ripple />
+      <Ripple v-if="!isPostPreview" />
     </template>
   </main>
 </template>

@@ -8,17 +8,37 @@ export default defineConfig({
   description: "Wujue's blog",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [{ text: "Examples", link: "/markdown-examples" }],
-
-    sidebar: [
+    nav: [
       {
-        text: "Examples",
-        items: [
-          { text: "Markdown Examples", link: "/markdown-examples" },
-          { text: "Runtime API Examples", link: "/api-examples" },
-        ],
+        text: "所有文章",
+        link: "/post-preview",
+      },
+      {
+        text: "學習文章",
+        link: "/learning/vue/2024-03-01-experience-in-developing-a-blog-with-vitepress",
       },
     ],
+
+    sidebar: {
+      "/learning/": [
+        {
+          text: "Vue",
+          collapsed: true,
+          items: [
+            {
+              text: "VitePress",
+              collapsed: true,
+              items: [
+                {
+                  text: "使用 VitePress 開發部落格的心得",
+                  link: "/learning/vue/2024-03-01-experience-in-developing-a-blog-with-vitepress",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
 
     socialLinks: [
       { icon: "github", link: "https://github.com/wujue0115/blog" },
@@ -32,7 +52,10 @@ export default defineConfig({
   vite: {
     plugins: [
       UnoCSS(),
-      AutoImport({ imports: ["vue"], dts: "../auto-imports.d.ts" }),
+      AutoImport({
+        imports: ["vue"],
+        dts: "../auto-imports.d.ts",
+      }),
     ],
     ssr: {
       noExternal: ["super-typer", "wowfy"],
