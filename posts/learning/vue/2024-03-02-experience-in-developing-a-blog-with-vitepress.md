@@ -277,7 +277,7 @@ tags:
 
 #### 文章上方資訊
 
-很多部落格文章上方都會呈現一些文章基本資訊，增加閱讀體驗，因此我想要在文章頁面上方添加一些資訊，比如說文章標籤、日期等等。
+很多部落格文章上方都會呈現一些文章基本資訊用來增加閱讀體驗，因此我想要在文章頁面上方添加一些資訊，比如說文章標籤、日期等等。
 
 VitePress 的 `<Layout />` 提供了 [doc-before slot](https://vitepress.dev/guide/extending-default-theme#layout-slots) 讓我們可以在文章上方添加一些自定義的內容，因此我寫了一個 `DocBefore` 組件來呈現文章的基本資訊，包括文章標籤、發布日期、最後更新日期、預估閱讀時間。
 
@@ -386,7 +386,7 @@ const filterPosts = (_posts: TPost[]) => {
 排序部分目前是依據 `發布日期` 和 `最後更新日期` 來排序，分別有 `新到舊` 和 `舊到新` 兩種排序方式，所以總共有四種排序方式。實作時利用 `transform` 時處理的 `日期量值` 來比較日期先後，以下是程式碼：
 
 ```ts:line-numbers
-const sortPosts = (_posts: TPost[]) => {
+const sortPosts = (_sortType: TSortType) => (_posts: TPost[]) => {
   const compares = {
     // 發布日期: 新到舊
     publishDateNewToOld: (a: TPost, b: TPost) => b.date.time - a.date.time,
@@ -398,7 +398,7 @@ const sortPosts = (_posts: TPost[]) => {
     lastUpdatedOldToNew: (a: TPost, b: TPost) => a.lastUpdated.time - b.lastUpdated.time,
   };
 
-  return _posts.sort(compares[sortType.value]);
+  return _posts.sort(compares[_sortType]);
 };
 ``` 
 
