@@ -60,6 +60,10 @@ export default defineConfig({
       noExternal: ["super-typer", "wowfy"],
     },
   },
+  sitemap: {
+    hostname: "https://blog.wujue.dev",
+  },
+  lastUpdated: true,
   transformPageData(pageData, { siteConfig }) {
     pageData.frontmatter.head ??= [];
     const metas = [
