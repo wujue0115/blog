@@ -372,12 +372,8 @@ export default createContentLoader("posts/**/*.md", {
 根據上述資料格式，可以取得所有文章的標籤，再來就是實作 UI 和邏輯了。UI 部分由於是自己的部落格，所以打算自己刻 UI component，有興趣的人直接去看原始碼吧。過濾標籤的部分採用 `and` 邏輯，以下是程式碼：
 
 ```ts:line-numbers
-const filterPosts = (_posts: TPost[]) => {
-  if (!tags.value.length) return _posts;
-
-  return _posts.filter((post) =>
-    tags.value.every((tag) => post.tags.includes(tag))
-  );
+const filterPosts = (_tags: string[]) => (_posts: TPost[]) => {
+  return _posts.filter((post) => _tags.every((tag) => post.tags.includes(tag)));
 };
 ```
 
