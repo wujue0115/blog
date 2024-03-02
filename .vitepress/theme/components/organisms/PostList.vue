@@ -29,7 +29,7 @@ const filterPosts = (_posts: TPost[]) => {
   );
 };
 
-const sortPosts = (_posts: TPost[]) => {
+const sortPosts = (_sortType: TSortType) => (_posts: TPost[]) => {
   const compares = {
     publishDateNewToOld: (a: TPost, b: TPost) => b.date.time - a.date.time,
     publishDateOldToNew: (a: TPost, b: TPost) => a.date.time - b.date.time,
@@ -39,15 +39,15 @@ const sortPosts = (_posts: TPost[]) => {
       a.lastUpdated.time - b.lastUpdated.time,
   };
 
-  return _posts.sort(compares[sortType.value]);
+  return _posts.sort(compares[_sortType]);
 };
 
-const postsFactory = pipe(filterPosts, sortPosts);
 const processedPosts = ref<TPost[]>([]);
 
 watch(
   [tags, sortType],
   () => {
+    const postsFactory = pipe(filterPosts, sortPosts(sortType.value));
     processedPosts.value = postsFactory(posts);
   },
   { immediate: true }
