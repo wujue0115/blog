@@ -21,12 +21,8 @@ const props = withDefaults(
 
 const { tags, sortType } = toRefs(props);
 
-const filterPosts = (_posts: TPost[]) => {
-  if (!tags.value.length) return _posts;
-
-  return _posts.filter((post) =>
-    tags.value.every((tag) => post.tags.includes(tag))
-  );
+const filterPosts = (_tags: string[]) => (_posts: TPost[]) => {
+  return _posts.filter((post) => _tags.every((tag) => post.tags.includes(tag)));
 };
 
 const sortPosts = (_sortType: TSortType) => (_posts: TPost[]) => {
@@ -47,7 +43,10 @@ const processedPosts = ref<TPost[]>([]);
 watch(
   [tags, sortType],
   () => {
-    const postsFactory = pipe(filterPosts, sortPosts(sortType.value));
+    const postsFactory = pipe(
+      filterPosts(tags.value),
+      sortPosts(sortType.value)
+    );
     processedPosts.value = postsFactory(posts);
   },
   { immediate: true }
