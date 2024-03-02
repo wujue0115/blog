@@ -6,6 +6,25 @@ import AutoImport from "unplugin-auto-import/vite";
 export default defineConfig({
   title: "Wujue's Blog",
   description: "Wujue's blog",
+  head: [
+    [
+      "script",
+      {
+        async: "",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-CGEJ6P35H5",
+      },
+    ],
+    [
+      "script",
+      {},
+      `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CGEJ6P35H5');
+      `,
+    ],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
