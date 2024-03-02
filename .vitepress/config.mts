@@ -68,11 +68,11 @@ export default defineConfig({
         content: pageData.description,
       },
       {
-        name: "og:title",
+        property: "og:title",
         content: pageData.title,
       },
       {
-        name: "og:description",
+        property: "og:description",
         content: pageData.description,
       },
     ];
@@ -80,5 +80,14 @@ export default defineConfig({
     metas.forEach((metaInfo) => {
       pageData.frontmatter.head.push(["meta", metaInfo]);
     });
+
+    const canonicalUrl = `https://blog.wujue.dev/${pageData.relativePath}`
+      .replace(/index\.md$/, "")
+      .replace(/\.md$/, ".html");
+
+    pageData.frontmatter.head.push([
+      "link",
+      { rel: "canonical", href: canonicalUrl },
+    ]);
   },
 });
