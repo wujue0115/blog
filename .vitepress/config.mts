@@ -15,7 +15,7 @@ export default defineConfig({
       },
       {
         text: "學習文章",
-        link: "/learning/vue/2024-03-01-experience-in-developing-a-blog-with-vitepress",
+        link: "/learning/vue/2024-03-02-experience-in-developing-a-blog-with-vitepress",
       },
     ],
 
@@ -31,7 +31,7 @@ export default defineConfig({
               items: [
                 {
                   text: "使用 VitePress 開發部落格的心得",
-                  link: "/learning/vue/2024-03-01-experience-in-developing-a-blog-with-vitepress",
+                  link: "/learning/vue/2024-03-02-experience-in-developing-a-blog-with-vitepress",
                 },
               ],
             },
