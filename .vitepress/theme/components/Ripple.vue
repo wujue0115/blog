@@ -7,8 +7,11 @@ const { isDark } = useData();
 
 const wowfy = ref<Wowfy>();
 const wowfyRef = ref<HTMLElement>();
+const isLooping = ref(false);
 
 const rippleAnimationLoop = () => {
+  if (!isLooping.value) return;
+
   wowfy.value?.update("ripple", {
     background: isDark.value
       ? "radial-gradient(#fff3, #fff)"
@@ -37,7 +40,12 @@ const rippleInit = () => {
 };
 
 onMounted(() => {
+  isLooping.value = true;
   rippleInit();
+});
+
+onUnmounted(() => {
+  isLooping.value = false;
 });
 </script>
 
