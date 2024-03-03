@@ -7,6 +7,7 @@ export default defineConfig({
   title: "Wujue's Blog",
   description: "Wujue's blog",
   head: [
+    // Google Analytics
     [
       "script",
       {
@@ -23,6 +24,15 @@ export default defineConfig({
       gtag('js', new Date());
       gtag('config', 'G-MPYPZ0MSLM');
       `,
+    ],
+    // Cloudflare Analytics
+    [
+      "script",
+      {
+        defer: "",
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": '{"token": "85d6ed7a2cbe45eca284dc0ddaaca257"}',
+      },
     ],
   ],
   themeConfig: {
