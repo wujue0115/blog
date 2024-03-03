@@ -52,17 +52,16 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
 
 <template>
   <main>
+    <template v-if="isHome || isNotFound || isPostPreview">
+      <VPNav />
+      <Ripple v-if="!isPostPreview" />
+    </template>
     <Home v-if="isHome" />
     <NotFound v-else-if="isNotFound" />
     <PostPreview v-else-if="isPostPreview" />
     <Layout v-else>
       <template #doc-before><DocBefore v-if="!isPostPreview" /></template>
     </Layout>
-
-    <template v-if="isHome || isNotFound || isPostPreview">
-      <VPNav />
-      <Ripple v-if="!isPostPreview" />
-    </template>
   </main>
 </template>
 
