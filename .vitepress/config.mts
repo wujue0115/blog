@@ -120,7 +120,9 @@ export default defineConfig({
     const ogMetaInfos = [
       {
         property: "og:title",
-        content: pageData.title + " | Wujue's blog",
+        content: `${pageData.title}${
+          pageData.frontmatter.page === "home" ? "" : " | Wujue's blog"
+        }`,
       },
       {
         property: "og:description",
