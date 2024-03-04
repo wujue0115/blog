@@ -5,8 +5,8 @@ import AutoImport from "unplugin-auto-import/vite";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Wujue's Blog",
-  description: "Wujue's blog",
   head: [
+    ["link", { rel: "icon", href: "/favicon.svg" }],
     // Google Analytics
     [
       "script",
@@ -37,6 +37,11 @@ export default defineConfig({
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    siteTitle: false,
+    logo: {
+      light: "/logo.svg",
+      dark: "/logo-dark.svg",
+    },
     nav: [
       {
         text: "所有文章",
