@@ -7,6 +7,13 @@ export default defineConfig({
   title: "Wujue's Blog",
   head: [
     ["link", { rel: "icon", href: "/favicon.svg" }],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "/og-image.png",
+      },
+    ],
     // Google Analytics
     [
       "script",
