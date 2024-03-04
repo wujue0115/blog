@@ -4,16 +4,9 @@ import AutoImport from "unplugin-auto-import/vite";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Wujue's Blog",
+  title: "Wujue's blog",
   head: [
     ["link", { rel: "icon", href: "/favicon.svg" }],
-    [
-      "meta",
-      {
-        property: "og:image",
-        content: "/og-image.png",
-      },
-    ],
     // Google Analytics
     [
       "script",
@@ -105,34 +98,93 @@ export default defineConfig({
     hostname: "https://blog.wujue.dev",
   },
   lastUpdated: true,
-  transformPageData(pageData, { siteConfig }) {
+  transformPageData(pageData) {
     pageData.frontmatter.head ??= [];
-    const metas = [
-      {
-        name: "description",
-        content: pageData.description,
-      },
-      {
-        property: "og:title",
-        content: pageData.title,
-      },
-      {
-        property: "og:description",
-        content: pageData.description,
-      },
-    ];
-
-    metas.forEach((metaInfo) => {
-      pageData.frontmatter.head.push(["meta", metaInfo]);
-    });
+    const head = pageData.frontmatter.head;
 
     const canonicalUrl = `https://blog.wujue.dev/${pageData.relativePath}`
       .replace(/index\.md$/, "")
       .replace(/\.md$/, ".html");
 
-    pageData.frontmatter.head.push([
-      "link",
-      { rel: "canonical", href: canonicalUrl },
+    // basic meta
+    head.push([
+      "meta",
+      {
+        name: "description",
+        content: pageData.description,
+      },
     ]);
+    head.push(["link", { rel: "canonical", href: canonicalUrl }]);
+
+    // og meta
+    const ogMetaInfos = [
+      {
+        property: "og:title",
+        content: pageData.title + " | Wujue's blog",
+      },
+      {
+        property: "og:description",
+        content: pageData.description,
+      },
+      {
+        property: "og:site_name",
+        content: "Wujue's blog",
+      },
+      {
+        property: "og:image",
+        content: "/og-image.png",
+      },
+      {
+        property: "og:image:alt",
+        content: "Wujue's blog - logo",
+      },
+      {
+        property: "og:image:type",
+        content: "image/png",
+      },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "630",
+      },
+      {
+        property: "og:locale",
+        content: "zh_TW",
+      },
+      {
+        property: "og:url",
+        content: canonicalUrl,
+      },
+      {
+        property: "og:type",
+        content: pageData.frontmatter.page ? "website" : "article",
+      },
+    ];
+
+    if (!pageData.frontmatter.page) {
+      ogMetaInfos.push({
+        property: "article:published_time",
+        content: pageData.frontmatter.date,
+      });
+      ogMetaInfos.push({
+        property: "article:modified_time",
+        content: pageData.frontmatter.lastUpdated,
+      });
+      ogMetaInfos.push({
+        property: "article:author",
+        content: "Wujue",
+      });
+      ogMetaInfos.push({
+        property: "article:tag",
+        content: pageData.frontmatter.tags,
+      });
+    }
+
+    ogMetaInfos.forEach((metaInfo) => {
+      head.push(["meta", metaInfo]);
+    });
   },
 });
