@@ -38,6 +38,11 @@ export default defineConfig({
     "btn-base":
       "chip-base hover:(outline-base animate-pulse-alt) cursor-pointer",
   },
+  theme: {
+    breakpoints: {
+      lg: "960px",
+    },
+  },
   presets: [
     presetUno(),
     presetAttributify(),

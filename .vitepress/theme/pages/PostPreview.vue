@@ -19,7 +19,7 @@ const handleCloseSelectorPanel = () => {
 </script>
 
 <template>
-  <div flex justify-center @click="handleCloseSelectorPanel">
+  <div flex justify-center lg="mt-16" @click="handleCloseSelectorPanel">
     <div p="y-12" w="85% sm:80% md:60%">
       <h1 text="center 32px" leading-32px font-600>所有文章</h1>
 
