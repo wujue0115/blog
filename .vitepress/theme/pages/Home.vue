@@ -58,7 +58,7 @@ onUnmounted(() => {
           alt="avatar"
         />
       </div>
-      <div class="mt-6">
+      <div class="mt-6" lg="mt-8">
         <ul class="flex">
           <li>
             <a
@@ -95,6 +95,7 @@ onUnmounted(() => {
         <p
           ref="introRef"
           class="w-80% text-base text-justify break-all leading-10 font-bold"
+          lg="leading-12"
           md="w-50% text-center"
         ></p>
       </div>
