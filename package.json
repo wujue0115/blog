@@ -4,6 +4,7 @@
     "@iconify-json/line-md": "^1.1.36",
     "@iconify-json/material-symbols": "^1.1.73",
     "@iconify-json/simple-icons": "^1.1.91",
+    "markdown-it-mathjax3": "^4.3.2",
     "unocss": "^0.58.5",
     "unplugin-auto-import": "^0.17.5",
     "vitepress": "1.0.0-rc.42"

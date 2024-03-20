@@ -56,7 +56,7 @@ export default defineConfig({
       "/learning/": [
         {
           text: "Vue",
-          collapsed: true,
+          collapsed: false,
           items: [
             {
               text: "VitePress",
@@ -65,6 +65,28 @@ export default defineConfig({
                 {
                   text: "使用 VitePress 開發部落格的心得",
                   link: "/learning/vue/2024-03-02-experience-in-developing-a-blog-with-vitepress",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          text: "Data Structure & Algorithm",
+          collapsed: false,
+          items: [
+            {
+              text: "解題分享",
+              collapsed: false,
+              items: [
+                {
+                  text: "LeetCode",
+                  collapsed: true,
+                  items: [
+                    {
+                      text: "72. Edit Distance",
+                      link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-20-72-edit-distance",
+                    },
+                  ],
                 },
               ],
             },
@@ -93,6 +115,9 @@ export default defineConfig({
     ssr: {
       noExternal: ["super-typer", "wowfy"],
     },
+  },
+  markdown: {
+    math: true,
   },
   sitemap: {
     hostname: "https://blog.wujue.dev",
