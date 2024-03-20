@@ -21,6 +21,7 @@ const handleClick = (item: string) => {
       is-selectable
       @click="handleClick(item)"
       m="t-3"
+      whitespace-nowrap
     >
       {{ item }}
     </Chip>

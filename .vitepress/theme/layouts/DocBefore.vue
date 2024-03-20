@@ -19,7 +19,7 @@ const { frontmatter } = useData();
     >
       <Chip v-for="tag in frontmatter.tags" :key="tag">{{ tag }}</Chip>
     </div>
-    <div text="left sm [var(--vp-c-text-2)]">
+    <div text="left sm [var(--vp-c-text-2)]" whitespace-nowrap>
       <p flex items-center>
         <i
           class="i-material-symbols:event-note-outline-rounded"
