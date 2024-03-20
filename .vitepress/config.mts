@@ -122,7 +122,6 @@ export default defineConfig({
   sitemap: {
     hostname: "https://blog.wujue.dev",
   },
-  lastUpdated: true,
   transformPageData(pageData) {
     pageData.frontmatter.head ??= [];
     const head = pageData.frontmatter.head;
