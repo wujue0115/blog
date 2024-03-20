@@ -17,7 +17,7 @@ LeetCode 72. Edit Distance 解題思路分享。
 
 ---
 
-# 72. Edit Distance
+# LeetCode 72. Edit Distance
 
 ## 題目
 
