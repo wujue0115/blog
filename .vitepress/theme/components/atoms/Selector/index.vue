@@ -31,13 +31,13 @@ const { items, placeholder } = toRefs(props);
 const selectorPanelWrapperRef = ref<HTMLElement>();
 
 const triggerSelectorPanelAdjust = () => {
-  isOpenSelectorPanel.value && (selectorPanelTrigger.value ^= 1);
+  selectorPanelTrigger.value ^= 1;
 };
 
-const handleToggleSelector = () => {
+function handleToggleSelector() {
   isOpenSelectorPanel.value = !isOpenSelectorPanel.value;
-  isOpenSelectorPanel.value && triggerSelectorPanelAdjust();
-};
+  triggerSelectorPanelAdjust();
+}
 
 const handleClickInput = () => {
   handleToggleSelector();
@@ -50,8 +50,8 @@ const handleSelect = (item: string) => {
   emits("change", item);
 };
 
+useEventListener(window, "resize", triggerSelectorPanelAdjust);
 onMounted(() => {
-  useEventListener(window, "resize", triggerSelectorPanelAdjust);
   useElementPositionAligner(selectorPanelTrigger, selectorPanelWrapperRef);
 });
 </script>
@@ -85,10 +85,10 @@ onMounted(() => {
       left-0
       m="t-2"
       p="x-3 b-3"
-      max-w-200px
+      max-w-300px
       max-h-300px
-      box-border
       overflow-scroll
+      box-border
       rounded-md
       outline-base
       bg="[var(--vp-c-bg)]"

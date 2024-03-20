@@ -16,13 +16,13 @@ const tagSelectorPanelTrigger = ref(0);
 const unSelectedTags = ref<string[]>(posts[0].allTags.sort());
 
 const triggerTagSelectorPanelAdjust = () => {
-  isOpenSelectorPanel.value && (tagSelectorPanelTrigger.value ^= 1);
+  tagSelectorPanelTrigger.value ^= 1;
 };
 
-const handleToggleTagSelector = (isOpen?: boolean) => {
+const handleToggleTagSelector = () => {
   if (unSelectedTags.value.length === 0) return;
 
-  isOpenSelectorPanel.value = useToggle(isOpenSelectorPanel.value, isOpen);
+  isOpenSelectorPanel.value = useToggle(isOpenSelectorPanel.value);
   triggerTagSelectorPanelAdjust();
 };
 
@@ -61,7 +61,7 @@ const handleUnSelectTag = (tag: string) => {
         <template #input>
           <Buttom
             :is-padding="false"
-            @click.stop="handleToggleTagSelector"
+            @click.stop="handleToggleTagSelector()"
             p-1.5
           >
             <div class="i-material-symbols:bookmark-add-outline-rounded"></div>
