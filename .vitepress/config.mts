@@ -83,6 +83,10 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     {
+                      text: "32. Longest Valid Parentheses",
+                      link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-23-leetcode-32-longest-valid-parentheses",
+                    },
+                    {
                       text: "72. Edit Distance",
                       link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-20-leetcode-72-edit-distance",
                     },
