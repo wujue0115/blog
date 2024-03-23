@@ -2,11 +2,12 @@
 title: LeetCode 72. Edit Distance
 description: LeetCode 72. Edit Distance 解題思路分享
 date: 2024-03-20
-lastUpdated: 2024-03-20
+lastUpdated: 2024-03-23
 estimatedReadingTime: 5 min
 tags:
   - LeetCode
   - Medium
+  - String
   - Dynamic Programming
   - 72. Edit Distance
 ---
