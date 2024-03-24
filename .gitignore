@@ -8,3 +8,6 @@ auto-imports.d.ts
 # vitepress build output
 .vitepress/dist/
 .vitepress/cache/
+
+# unfinished posts
+posts/**/_*.md
