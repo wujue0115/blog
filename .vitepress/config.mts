@@ -5,36 +5,7 @@ import AutoImport from "unplugin-auto-import/vite";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Wujue's blog",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.svg" }],
-    // Google Analytics
-    [
-      "script",
-      {
-        async: "",
-        src: "https://www.googletagmanager.com/gtag/js?id=G-MPYPZ0MSLM",
-      },
-    ],
-    [
-      "script",
-      {},
-      `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MPYPZ0MSLM');
-      `,
-    ],
-    // Cloudflare Analytics
-    [
-      "script",
-      {
-        defer: "",
-        src: "https://static.cloudflareinsights.com/beacon.min.js",
-        "data-cf-beacon": '{"token": "85d6ed7a2cbe45eca284dc0ddaaca257"}',
-      },
-    ],
-  ],
+  head: [["link", { rel: "icon", href: "/favicon.svg" }]],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     siteTitle: false,
@@ -135,13 +106,6 @@ export default defineConfig({
       .replace(/\.md$/, ".html");
 
     // basic meta
-    head.push([
-      "meta",
-      {
-        name: "description",
-        content: pageData.description,
-      },
-    ]);
     head.push(["link", { rel: "canonical", href: canonicalUrl }]);
 
     // og meta
