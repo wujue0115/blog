@@ -15,6 +15,8 @@ export interface TPost {
   allTags?: string[];
 }
 
+export type TTagLogic = "and" | "or";
+
 export type TSortType =
   | "publishDateNewToOld"
   | "publishDateOldToNew"

@@ -1,13 +1,17 @@
 <script lang="ts" setup>
-import type { TSortType } from "../types";
+import type { TTagLogic, TSortType } from "../types";
 
 import Divider from "../components/atoms/Divider.vue";
 import TagPanel from "../components/organisms/PostPreviewTagPanel.vue";
+import TagLogicPanel from "../components/organisms/PostPreviewTagLogicPanel.vue";
 import SortPanel from "../components/organisms/PostPreviewSortPanel.vue";
 import PostList from "../components/organisms/PostList.vue";
 
 const selectedTags = ref<string[]>([]);
 const isOpenTagSelectorPanel = ref(false);
+
+const selectedTagLogic = ref<TTagLogic>("and");
+const isOpenTagLogicSelectorPanel = ref(false);
 
 const selectedSortType = ref<TSortType>("publishDateNewToOld");
 const isOpenSortSelectorPanel = ref(false);
@@ -15,6 +19,7 @@ const isOpenSortSelectorPanel = ref(false);
 const handleCloseSelectorPanel = () => {
   isOpenTagSelectorPanel.value = false;
   isOpenSortSelectorPanel.value = false;
+  isOpenTagLogicSelectorPanel.value = false;
 };
 </script>
 
@@ -39,6 +44,13 @@ const handleCloseSelectorPanel = () => {
 
       <Divider />
 
+      <TagLogicPanel
+        v-model="selectedTagLogic"
+        v-model:isOpenPanel="isOpenTagLogicSelectorPanel"
+      />
+
+      <Divider />
+
       <SortPanel
         v-model="selectedSortType"
         v-model:isOpenPanel="isOpenSortSelectorPanel"
@@ -46,7 +58,11 @@ const handleCloseSelectorPanel = () => {
 
       <Divider />
 
-      <PostList :tags="selectedTags" :sortType="selectedSortType" />
+      <PostList
+        :tags="selectedTags"
+        :tagLogic="selectedTagLogic"
+        :sortType="selectedSortType"
+      />
     </div>
   </div>
 </template>

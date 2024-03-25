@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { TPost, TSortType } from "../../types";
+import type { TPost, TTagLogic, TSortType } from "../../types";
 import { data as posts } from "../../posts.data";
 import PostCard from "../molecules/PostCard.vue";
 import Divider from "../atoms/Divider.vue";
@@ -11,18 +11,24 @@ const { pipe } = useFP();
 const props = withDefaults(
   defineProps<{
     tags?: string[];
+    tagLogic?: TTagLogic;
     sortType?: TSortType;
   }>(),
   {
     tags: () => [],
+    tagLogic: "and",
     sortType: "publishDateNewToOld",
   }
 );
 
-const { tags, sortType } = toRefs(props);
+const { tags, tagLogic, sortType } = toRefs(props);
 
 const filterPosts = (_tags: string[]) => (_posts: TPost[]) => {
-  return _posts.filter((post) => _tags.every((tag) => post.tags.includes(tag)));
+  return _posts.filter((post) =>
+    _tags[tagLogic.value === "and" ? "every" : "some"]((tag) =>
+      post.tags.includes(tag)
+    )
+  );
 };
 
 const sortPosts = (_sortType: TSortType) => (_posts: TPost[]) => {
@@ -41,7 +47,7 @@ const sortPosts = (_sortType: TSortType) => (_posts: TPost[]) => {
 const processedPosts = ref<TPost[]>([]);
 
 watch(
-  [tags, sortType],
+  [tags, tagLogic, sortType],
   () => {
     const postsFactory = pipe(
       filterPosts(tags.value),
