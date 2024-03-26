@@ -162,11 +162,11 @@ export default defineConfig({
     // twitter meta
     const twitterMetaInfos = [
       {
-        property: "twitter:title",
+        name: "twitter:title",
         content: title,
       },
       {
-        property: "twitter:description",
+        name: "twitter:description",
         content: pageData.description,
       },
       {
