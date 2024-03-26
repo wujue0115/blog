@@ -104,6 +104,9 @@ export default defineConfig({
     const canonicalUrl = `https://blog.wujue.dev/${pageData.relativePath}`
       .replace(/index\.md$/, "")
       .replace(/\.md$/, ".html");
+    const title = `${pageData.title}${
+      pageData.frontmatter.page === "home" ? "" : " | Wujue's blog"
+    }`;
 
     // basic meta
     head.push(["link", { rel: "canonical", href: canonicalUrl }]);
@@ -112,9 +115,7 @@ export default defineConfig({
     const ogMetaInfos = [
       {
         property: "og:title",
-        content: `${pageData.title}${
-          pageData.frontmatter.page === "home" ? "" : " | Wujue's blog"
-        }`,
+        content: title,
       },
       {
         property: "og:description",
@@ -158,6 +159,34 @@ export default defineConfig({
       },
     ];
 
+    // twitter meta
+    const twitterMetaInfos = [
+      {
+        property: "twitter:title",
+        content: title,
+      },
+      {
+        property: "twitter:description",
+        content: pageData.description,
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:site",
+        content: "@wujue0115",
+      },
+      {
+        name: "twitter:image",
+        content: "/og-image.png",
+      },
+      {
+        name: "twitter:image:alt",
+        content: "Wujue's blog - logo",
+      },
+    ];
+
     if (!pageData.frontmatter.page) {
       ogMetaInfos.push({
         property: "article:published_time",
@@ -177,7 +206,9 @@ export default defineConfig({
       });
     }
 
-    ogMetaInfos.forEach((metaInfo) => {
+    const metaInfos = [...ogMetaInfos, ...twitterMetaInfos];
+
+    metaInfos.forEach((metaInfo) => {
       head.push(["meta", metaInfo]);
     });
   },
