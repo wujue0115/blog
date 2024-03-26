@@ -179,7 +179,7 @@ export default defineConfig({
       },
       {
         name: "twitter:image",
-        content: "/twitter-image.png",
+        content: "https://blog.wujue.dev/twitter-image.png",
       },
       {
         name: "twitter:image:alt",
