@@ -179,7 +179,7 @@ export default defineConfig({
       },
       {
         name: "twitter:image",
-        content: "/og-image.png",
+        content: "/twitter-image.png",
       },
       {
         name: "twitter:image:alt",
