@@ -53,7 +53,6 @@ const createGoogleAnalyticsScripts = () => {
   const script1 = document.createElement("script");
   const script2 = document.createElement("script");
 
-  script1.async = true;
   script1.src = "https://www.googletagmanager.com/gtag/js?id=G-MPYPZ0MSLM";
 
   script2.textContent = `
@@ -69,7 +68,6 @@ const createGoogleAnalyticsScripts = () => {
 const createCloudflareAnalyticsScript = () => {
   const script = document.createElement("script");
 
-  script.defer = true;
   script.src = "https://static.cloudflareinsights.com/beacon.min.js";
   script.setAttribute(
     "data-cf-beacon",
