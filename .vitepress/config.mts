@@ -127,7 +127,7 @@ export default defineConfig({
       },
       {
         property: "og:image",
-        content: "/og-image.png",
+        content: "https://blog.wujue.dev/og-image.png",
       },
       {
         property: "og:image:alt",
