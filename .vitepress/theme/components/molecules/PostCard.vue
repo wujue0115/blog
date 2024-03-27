@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { TPost } from "../../types";
+import Chip from "../atoms/Chip.vue";
 
 const props = defineProps<{ post: TPost }>();
 const { post } = toRefs(props);
@@ -35,11 +36,16 @@ const { post } = toRefs(props);
           閱讀時間: ~ {{ post.estimatedReadingTime }}
         </p>
       </div>
+      <div flex="~ wrap" justify-start gap-2 w-full>
+        <Chip v-for="tag in post.tags" :key="tag">
+          {{ tag }}
+        </Chip>
+      </div>
     </div>
-    <p class="text-multi-ellipsis" m="t-3" max-h-7.5em>
+    <p class="text-multi-ellipsis" m="t-5" max-h-7.5em>
       {{ post.excerpt }}
     </p>
-    <div m="t-3" flex justify-center>
+    <div m="t-5" flex justify-center>
       <a :href="post.url" btn-base p-1.5-4 flex items-center>
         閱讀更多
         <div class="i-material-symbols:book-5-outline-rounded" m="l-1"></div>

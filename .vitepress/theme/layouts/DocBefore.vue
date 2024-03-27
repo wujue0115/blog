@@ -18,7 +18,7 @@ const handleClickTag = (tag: string) => {
     md="flex-row justify-between items-center"
   >
     <div
-      class="mt-3 self-center flex flex-wrap justify-start gap-2"
+      class="mt-3 self-start flex flex-wrap justify-start gap-2"
       md="self-center mt-0"
     >
       <Buttom
