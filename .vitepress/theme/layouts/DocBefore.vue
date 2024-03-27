@@ -1,11 +1,15 @@
 <script lang="ts" setup>
-import { useData } from "vitepress";
+import { useData, useRouter } from "vitepress";
 import { useDate } from "../composables/useDate";
-import Chip from "../components/atoms/Chip.vue";
+import Buttom from "../components/atoms/Buttom.vue";
 
+const router = useRouter();
+const { frontmatter } = useData();
 const { formatDate } = useDate();
 
-const { frontmatter } = useData();
+const handleClickTag = (tag: string) => {
+  router.go(`/post-preview?tag=${tag}`);
+};
 </script>
 
 <template>
@@ -17,7 +21,13 @@ const { frontmatter } = useData();
       class="mt-3 self-center flex flex-wrap justify-start gap-2"
       md="self-center mt-0"
     >
-      <Chip v-for="tag in frontmatter.tags" :key="tag">{{ tag }}</Chip>
+      <Buttom
+        v-for="tag in frontmatter.tags"
+        :key="tag"
+        @click="handleClickTag(tag)"
+      >
+        {{ tag }}
+      </Buttom>
     </div>
     <div text="left sm [var(--vp-c-text-2)]" whitespace-nowrap>
       <p flex items-center>

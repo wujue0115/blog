@@ -1,11 +1,14 @@
 <script lang="ts" setup>
 import type { TTagLogic, TSortType } from "../types";
+import { useRoute } from "vitepress";
 
 import Divider from "../components/atoms/Divider.vue";
 import TagPanel from "../components/organisms/PostPreviewTagPanel.vue";
 import TagLogicPanel from "../components/organisms/PostPreviewTagLogicPanel.vue";
 import SortPanel from "../components/organisms/PostPreviewSortPanel.vue";
 import PostList from "../components/organisms/PostList.vue";
+
+const route = useRoute();
 
 const selectedTags = ref<string[]>([]);
 const isOpenTagSelectorPanel = ref(false);
@@ -21,6 +24,18 @@ const handleCloseSelectorPanel = () => {
   isOpenSortSelectorPanel.value = false;
   isOpenTagLogicSelectorPanel.value = false;
 };
+
+const handleQueryStringTag = () => {
+  const url = new URL(window.location.href);
+  const tag = url.searchParams.get("tag");
+  if (tag) {
+    selectedTags.value.push(tag);
+  }
+};
+
+onBeforeMount(() => {
+  handleQueryStringTag();
+});
 </script>
 
 <template>
