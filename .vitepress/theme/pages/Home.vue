@@ -63,6 +63,7 @@ onUnmounted(() => {
           <li>
             <a
               title="gmail"
+              target="_blank"
               href="mailto:wujue.0115@gmail.com"
               class="inline-block align-middle i-simple-icons:gmail"
             >
@@ -71,6 +72,7 @@ onUnmounted(() => {
           <li class="ml-6">
             <a
               title="github"
+              target="_blank"
               href="https://github.com/wujue0115"
               class="inline-block align-middle i-line-md:github-loop"
             ></a>
@@ -78,13 +80,23 @@ onUnmounted(() => {
           <li class="ml-6">
             <a
               title="leetcode"
+              target="_blank"
               href="https://leetcode.com/Wujue0115/"
               class="inline-block align-middle i-simple-icons:leetcode"
             ></a>
           </li>
           <li class="ml-6">
             <a
+              title="x"
+              target="_blank"
+              href="https://twitter.com/wujue0115/"
+              class="inline-block align-middle i-line-md:twitter-x-alt"
+            ></a>
+          </li>
+          <li class="ml-6">
+            <a
               title="linkedin"
+              target="_blank"
               href="https://www.linkedin.com/in/tzu-yu-cheng-51a611265/"
               class="inline-block align-middle i-simple-icons:linkedin"
             ></a>
