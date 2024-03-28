@@ -62,6 +62,10 @@ export default defineConfig({
                       link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-27-leetcode-42-trapping-rain-water",
                     },
                     {
+                      text: "44. Wildcard Matching",
+                      link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-28-leetcode-44-wailcard-matching",
+                    },
+                    {
                       text: "72. Edit Distance",
                       link: "/learning/data-structure-and-algorithm/problems/leetcode/2024-03-20-leetcode-72-edit-distance",
                     },
