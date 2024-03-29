@@ -15,7 +15,7 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "super-typer": "^0.0.4",
+    "super-typer": "^0.1.5",
     "vue": "^3.4.18",
     "wowfy": "^0.2.3"
   }

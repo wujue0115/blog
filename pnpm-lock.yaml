@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   super-typer:
-    specifier: ^0.0.4
-    version: 0.0.4
+    specifier: ^0.1.5
+    version: 0.1.5
   vue:
     specifier: ^3.4.18
     version: 3.4.18
@@ -2303,8 +2303,8 @@ packages:
       acorn: 8.11.3
     dev: true
 
-  /super-typer@0.0.4:
-    resolution: {integrity: sha512-RNyGor8fD/GDOlfxuube6PdO56SPnjWT7DMg37TfXIHlwH+bPAg8ttE72CU6uMffh1NzXPL7C8jFz12WrrIP8g==}
+  /super-typer@0.1.5:
+    resolution: {integrity: sha512-hSoc7bV18WTYwx6Ew99UoSX6+osP8WoB0K/QRxdD6H9o4IlU59PfBtm3eKyouhK2ugrkaDLIBTlEfAf53TKZ3g==}
     dependencies:
       tslib: 2.6.2
     dev: false

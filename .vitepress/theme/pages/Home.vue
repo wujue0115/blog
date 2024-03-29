@@ -4,14 +4,12 @@ import Typer from "super-typer";
 const introRef = ref<HTMLElement>();
 const isLooping = ref(false);
 
-const typer = new Typer(
-  { speed: 70 },
-  {
-    onChange(text) {
-      introRef.value && (introRef.value.innerText = text + "|");
-    },
-  }
-);
+const typer = new Typer({
+  speed: 70,
+  onChange(text) {
+    introRef.value && (introRef.value.innerText = text + "|");
+  },
+});
 
 const typeLoop = () => {
   if (!isLooping.value) {
@@ -30,7 +28,7 @@ const typeLoop = () => {
     .type("\n如果有任何問題歡迎聯繫我哦～")
     .wait(1500)
     .backspace(-1, { speed: 10 })
-    .wait(500, {}, { onAfterChange: typeLoop });
+    .wait(500, { onAfterChange: typeLoop });
 };
 
 onMounted(() => {
