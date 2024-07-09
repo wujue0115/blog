@@ -36,6 +36,36 @@ const handleQueryStringTag = () => {
 onBeforeMount(() => {
   handleQueryStringTag();
 });
+
+watch(
+  [
+    isOpenTagSelectorPanel,
+    isOpenTagLogicSelectorPanel,
+    isOpenSortSelectorPanel,
+  ],
+  (newValue, oldValue) => {
+    const openSelectorPanels = [
+      isOpenTagSelectorPanel,
+      isOpenTagLogicSelectorPanel,
+      isOpenSortSelectorPanel,
+    ];
+
+    let triggerIndex = -1;
+    newValue.forEach((value, index) => {
+      if (value && !oldValue[index]) {
+        triggerIndex = index;
+      }
+    });
+
+    if (triggerIndex === -1) return;
+
+    openSelectorPanels.forEach((value, index) => {
+      if (index !== triggerIndex) {
+        openSelectorPanels[index].value = false;
+      }
+    });
+  }
+);
 </script>
 
 <template>
