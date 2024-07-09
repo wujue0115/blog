@@ -36,6 +36,22 @@ export const config: DefaultTheme.Config = {
         ],
       },
       {
+        text: "Nuxt",
+        collapsed: true,
+        items: [
+          {
+            text: "Issues",
+            collapsed: true,
+            items: [
+              {
+                text: "在 Nuxt3 SSR 遇到 Memory leak 的問題與解決方法",
+                link: "/learning/nuxt/2024-07-09-memory-leak-problem-in-nuxt3-ssr.md",
+              },
+            ],
+          },
+        ],
+      },
+      {
         text: "Data Structure & Algorithm",
         collapsed: false,
         items: [
