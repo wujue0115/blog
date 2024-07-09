@@ -50,18 +50,13 @@ watch(
       isOpenSortSelectorPanel,
     ];
 
-    let triggerIndex = -1;
-    newValue.forEach((value, index) => {
-      if (value && !oldValue[index]) {
-        triggerIndex = index;
-      }
-    });
-
-    if (triggerIndex === -1) return;
-
-    openSelectorPanels.forEach((value, index) => {
-      if (index !== triggerIndex) {
-        openSelectorPanels[index].value = false;
+    newValue.forEach((value, triggerIndex) => {
+      if (value && !oldValue[triggerIndex]) {
+        openSelectorPanels.forEach((openPanel, index) => {
+          if (index !== triggerIndex) {
+            openPanel.value = false;
+          }
+        });
       }
     });
   }
