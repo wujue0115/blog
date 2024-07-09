@@ -28,7 +28,7 @@ const handleChange = (item: string) => {
         m="t-2"
       >
         <template #input:before>
-          <div class="i-material-symbols:sort-rounded" m="r-1"></div>
+          <div class="i-material-symbols:filter-alt-outline" m="r-1"></div>
         </template>
       </Selector>
     </div>
