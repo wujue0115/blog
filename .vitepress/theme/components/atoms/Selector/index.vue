@@ -78,7 +78,7 @@ onMounted(() => {
     </Buttom>
     <div
       ref="selectorPanelWrapperRef"
-      v-show="isOpenSelectorPanel"
+      v-if="isOpenSelectorPanel"
       absolute
       z-1
       top-full
