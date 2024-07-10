@@ -1,4 +1,6 @@
-export const transformPageData = (pageData) => {
+import type { PageData } from "vitepress";
+
+export const transformPageData = (pageData: PageData) => {
   pageData.frontmatter.head ??= [];
   const head = pageData.frontmatter.head;
 
