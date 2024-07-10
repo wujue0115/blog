@@ -8,6 +8,7 @@ tags:
   - Blog
   - VitePress
   - Vue
+  - SEO
   - Frontend
 ---
 
