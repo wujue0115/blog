@@ -1,6 +1,6 @@
 ---
 title: 使用 VitePress 開發部落格的心得 2 - SEO 篇
-description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 title、description、sitemap、canonical url、og meta、twitter cards、rss 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 date: 2024-07-11
 lastUpdated: 2024-07-11
 estimatedReadingTime: 8 min
@@ -13,7 +13,7 @@ tags:
 ---
 
 <p hidden>
-在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 title、description、sitemap、canonical url、og meta、twitter cards、rss 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 </p>
 
 ---
@@ -22,7 +22,7 @@ tags:
 
 ## 序
 
-在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 title、description、sitemap、canonical url、og meta、twitter cards、rss 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 
 ## SEO (Search Engine Optimization)
 
@@ -59,25 +59,25 @@ Canonical URL 是指網頁的主要 URL，當網頁有多個 URL 指向同一個
 
 VitePress config 雖然沒有提供 Canonical URL 的選項，但可以透過 `transformPageData` hook 在生成網頁時，將 Canonical URL 加入到網頁的 head 中，而官網也有示範如何添加 Canonical URL ([Example: Adding a canonical URL <link>](https://vitepress.dev/reference/site-config#example-adding-a-canonical-url-link))。
 
-## Open Graph Protocol
+## Open Graph protocol
 
-Open graph protocol 是一個由 Facebook 提出的規範，後來也被其他社群平台廣泛使用。透過添加 og (open graph) meta tag 可以讓網頁在社群平台上更好的展示內容，包括標題、描述、圖片等等。
+Open Graph protocol 是一個由 Facebook 提出的規範，後來也被其他社群平台廣泛使用。透過添加 OG (Open Graph) meta tag 可以讓網頁在社群平台上更好的展示內容，包括標題、描述、圖片等等。
 
-以下是最常用的三個 og meta tag (其他 meta tag 請閱讀 [The Open Graph protocol](https://ogp.me/))：
+以下是最常用的三個 OG meta tag (其他 meta tag 請閱讀 [The Open Graph protocol](https://ogp.me/))：
 - og:title: 網頁的標題
 - og:description: 網頁的描述
 - og:image: 網頁的圖片，尺寸建議 1200 x 630 pixels
 
-設定了 og meta tag 之後，當使用者分享網頁到社群平台時，平台會自動抓取 og meta tag 的內容，展示在分享的內容中，如下圖分別是在 Facebook 和 Line 上分享的效果。
+設定了 OG meta tag 之後，當使用者分享網頁到社群平台時，平台會自動抓取 OG meta tag 的內容，展示在分享的內容中，如下圖分別是在 Facebook 和 Line 上分享的效果。
 
 <div class="sm:flex">
   <img class="sm:w-1/2 object-contain" src="/learning/vue/facebook-og-meta.jpg" />
   <img class="mt-4 object-contain" sm="mt-0 ml-4 w-1/2" src="/learning/vue/line-og-meta.jpg" />
 </div>
 
-我在部落格所設定的 og meta tag 都是透過 `transformPageData` hook 加入到網頁的 head 中的，`transformPageData` 的第一個參數可以設定頁面的 head 內容，如果要在 `Frontmatter` 中設定需要每個頁面去添加，所以我選擇統一在 `transformPageData` 中設定。
+我在部落格所設定的 OG meta tag 都是透過 `transformPageData` hook 加入到網頁的 head 中的，`transformPageData` 的第一個參數可以設定頁面的 head 內容，如果要在 `Frontmatter` 中設定需要每個頁面去添加，所以我選擇統一在 `transformPageData` 中設定。
 
-添加完 og meta tag 並重新部署後，如果要檢查 og meta tag 是否正確顯示，以及想要清除社群平台對 og meta tag 的快取，可以使用以下工具：
+添加完 OG meta tag 並重新部署後，如果要檢查 OG meta tag 是否正確顯示，以及想要清除社群平台對 OG meta tag 的快取，可以使用以下工具：
 - Facebook: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)。
 - Line: [LINE Page Poker](https://poker.line.naver.jp/)。
 
@@ -97,7 +97,7 @@ Twitter cards 跟 Open Graph Protocol 類似，是由 Twitter 提出的規範，
 
 ## RSS (Really Simple Syndication)
 
-RSS 是指一種網頁內容的格式，可以讓使用者訂閱網站的內容，當網站有新的內容時，使用者可以透過 RSS 閱讀器收到通知，提升網站的曝光度 (更多關於 RSS 的好處可以閱讀 [RSS 與 SEO | Summer。桑莫。夏天O](https://www.cythilya.tw/2017/03/28/rss-and-seo/))。
+RSS 是指一種網頁內容的格式，可以讓使用者訂閱網站的內容，當網站有新的內容時，使用者可以透過 RSS 閱讀器收到通知，提升網站的曝光度 (更多關於 RSS 的好處可以閱讀 [RSS 與 SEO | Summer。桑莫。夏天](https://www.cythilya.tw/2017/03/28/rss-and-seo/))。
 
 我參考了 [Vue.js blog](https://blog.vuejs.org/) 的 RSS 設定方式，使用 [jpmonette/feed](https://github.com/jpmonette/feed) 這個套件並透過 VitePress 的 [buildEnd](https://vitepress.dev/reference/site-config#buildend) hook 在部署時生成 RSS 檔案。
 
@@ -118,7 +118,7 @@ RSS feed 有很多種格式，例如 `RSS`、`Atom`、`JSON` 等等，根據 [Wh
 - [LINE Page Poker](https://poker.line.naver.jp/)
 - [Twitter Cards Validator](https://cards-dev.twitter.com/validator?)
 - [Card Validator - preview removal](https://devcommunity.x.com/t/card-validator-preview-removal/175006)
-- [RSS 與 SEO | Summer。桑莫。夏天O](https://www.cythilya.tw/2017/03/28/rss-and-seo/)
+- [RSS 與 SEO | Summer。桑莫。夏天](https://www.cythilya.tw/2017/03/28/rss-and-seo/)
 - [Vue.js blog](https://blog.vuejs.org/)
 - [jpmonette/feed](https://github.com/jpmonette/feed)
 - [What are the differences between RSS, ATOM, and JSON?](https://www.quora.com/What-are-the-differences-between-RSS-ATOM-and-JSON#:~:text=In%20conclusion%2C%20JSON%20is%20a,created%20for%20syndicating%20online%20content.)
