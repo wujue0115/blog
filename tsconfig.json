@@ -1,6 +1,7 @@
 {
   "include": [".vitepress/**/*", ".vitepress/**/*.vue", "auto-imports.d.ts"],
   "compilerOptions": {
-    "lib": ["ES2019", "DOM"]
+    "lib": ["ES2021", "DOM"],
+    "esModuleInterop": true
   }
 }
