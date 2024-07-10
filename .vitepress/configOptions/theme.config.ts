@@ -14,7 +14,7 @@ export const config: DefaultTheme.Config = {
     },
     {
       text: "學習文章",
-      link: "/learning/vue/vitepress/2024-03-02-experience-in-developing-a-blog-with-vitepress",
+      link: "/learning/vue/vitepress/2024-03-02-experience-in-developing-a-blog-with-vitepress-1",
     },
   ],
   sidebar: {
@@ -28,8 +28,8 @@ export const config: DefaultTheme.Config = {
             collapsed: true,
             items: [
               {
-                text: "使用 VitePress 開發部落格的心得",
-                link: "/learning/vue/vitepress/2024-03-02-experience-in-developing-a-blog-with-vitepress",
+                text: "使用 VitePress 開發部落格的心得 1 - 頁面開發篇",
+                link: "/learning/vue/vitepress/2024-03-02-experience-in-developing-a-blog-with-vitepress-1",
               },
               {
                 text: "使用 VitePress 開發部落格的心得 2 - SEO 篇",

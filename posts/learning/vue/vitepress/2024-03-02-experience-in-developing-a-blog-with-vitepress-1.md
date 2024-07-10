@@ -1,8 +1,8 @@
 ---
-title: 使用 VitePress 開發部落格的心得
-description: 這篇文章主要是分享我使用 VitePress 開發部落格的心得，包括技術選擇、頁面開發等等。
+title: 使用 VitePress 開發部落格的心得 1 - 頁面開發篇
+description: 在 Docus、Astro 和 VitePress 三個框架中，我選擇了 VitePress 來開發部落格，這篇文章主要介紹了部落格的開發過程，包括首頁的特效 (wowfy、super-typer)、文章頁的資訊、所有文章頁的標籤過濾和文章排序等等。
 date: 2024-03-02
-lastUpdated: 2024-03-02
+lastUpdated: 2024-07-11
 estimatedReadingTime: 10 min
 tags:
   - Blog
@@ -18,7 +18,7 @@ tags:
 
 ---
 
-# 使用 VitePress 開發部落格的心得
+# 使用 VitePress 開發部落格的心得 1 - 頁面開發篇
 
 ## 序
 
@@ -188,18 +188,12 @@ import Typer from "super-typer";
 const introRef = ref<HTMLElement>();
 const isLooping = ref(false);
 
-const typer = new Typer(
-  { 
-    speed: 70 // 速度參數 (字母間隔時間，單位：毫秒)
+const typer = new Typer({
+  speed: 70, // 速度參數 (字母間隔時間，單位：毫秒)
+  onChange(text) { // 當打字內容改變時觸發
+    introRef.value && (introRef.value.innerText = text + "|"); // 更新內容在畫面上
   },
-  {
-    // 當打字內容改變時觸發
-    onChange(text) {
-      // 更新內容在畫面上
-      introRef.value && (introRef.value.innerText = text + "|");
-    },
-  }
-);
+});
 
 const typeLoop = () => {
   // 關閉循環時重置打字效果
