@@ -56,6 +56,16 @@ export const config: DefaultTheme.Config = {
         ],
       },
       {
+        text: "Design Pattern",
+        collapsed: true,
+        items: [
+          {
+            text: "單例模式 (Singleton Pattern)",
+            link: "/learning/design-pattern/2024-07-12-singleton-pattern.md",
+          },
+        ],
+      },
+      {
         text: "Data Structure & Algorithm",
         collapsed: false,
         items: [
