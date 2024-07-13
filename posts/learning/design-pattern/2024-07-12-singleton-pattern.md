@@ -2,7 +2,7 @@
 title: 單例模式 (Singleton Pattern)
 description: 此篇文章介紹了單例模式在 JavaScript 中的實作方式，包含了一般的單例模式、惰性單例模式、ES6 Module 單例模式、用代理模式 (Proxy Pattern) 封裝單例模式等。
 date: 2024-07-12
-lastUpdated: 2024-07-13
+lastUpdated: 2024-07-14
 estimatedReadingTime: 5 min
 tags:
   - Design Pattern
