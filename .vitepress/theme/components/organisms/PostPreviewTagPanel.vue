@@ -13,7 +13,7 @@ const isOpenSelectorPanel = defineModel<boolean>("isOpenPanel", {
 });
 
 const tagSelectorPanelTrigger = ref(0);
-const unSelectedTags = ref<string[]>(posts[0].allTags.sort());
+const unSelectedTags = ref<string[]>([]);
 
 const triggerTagSelectorPanelAdjust = () => {
   tagSelectorPanelTrigger.value ^= 1;
@@ -38,6 +38,16 @@ const handleUnSelectTag = (tag: string) => {
   unSelectedTags.value = unSelectedTags.value.sort();
   triggerTagSelectorPanelAdjust();
 };
+
+const init = () => {
+  unSelectedTags.value = posts[0].allTags
+    .filter((tag) => !selectedTags.value.includes(tag))
+    .sort();
+};
+
+onMounted(() => {
+  init();
+});
 </script>
 
 <template>
