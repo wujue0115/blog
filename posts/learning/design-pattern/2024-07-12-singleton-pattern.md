@@ -2,7 +2,7 @@
 title: 單例模式 (Singleton Pattern)
 description: 此篇文章介紹了單例模式在 JavaScript 中的實作方式，包含了一般的單例模式、惰性單例模式、ES6 Module 單例模式、用代理模式 (Proxy Pattern) 封裝單例模式等。
 date: 2024-07-12
-lastUpdated: 2024-07-12
+lastUpdated: 2024-07-13
 estimatedReadingTime: 5 min
 tags:
   - Design Pattern
@@ -193,5 +193,5 @@ console.log(instance1 === instance2); // true
 
 - [JavaScript 設計模式與開發實踐](https://www.tenlong.com.tw/products/9787115388889?list_name=srh)
 - [7 ways to create Singleton Pattern in JavaScript](https://itnext.io/7-ways-to-create-singleton-in-javascript-db95a75fbb76)
-- [ES Module 本身就是單例](https://pjchender.dev/pattern/design-pattern-singleton/#es-module-%E6%9C%AC%E8%BA%AB%E5%B0%B1%E6%98%AF%E5%96%AE%E4%BE%8B)
+- [[GoF] 單例模式 Singleton | PJCHENder 未整理筆記](https://pjchender.dev/pattern/design-pattern-singleton/)
 - [How can I implement a singleton in JavaScript?](https://www.30secondsofcode.org/js/s/singleton-proxy/)
