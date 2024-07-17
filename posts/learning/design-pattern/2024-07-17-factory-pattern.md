@@ -9,8 +9,9 @@ tags:
   - Simple Factory Pattern
   - Factory Method Pattern
   - Abstract Factory Pattern
-  - Design Pattern
   - GoF
+  - Creational Design Pattern
+  - Design Pattern
   - TypeScript
 ---
 
