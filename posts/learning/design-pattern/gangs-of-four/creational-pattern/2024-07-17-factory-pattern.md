@@ -10,7 +10,7 @@ tags:
   - Factory Method Pattern
   - Abstract Factory Pattern
   - GoF
-  - Creational Design Pattern
+  - Creational Pattern
   - Design Pattern
   - TypeScript
 ---

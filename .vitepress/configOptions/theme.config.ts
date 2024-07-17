@@ -21,7 +21,7 @@ export const config: DefaultTheme.Config = {
     "/learning/": [
       {
         text: "Vue",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "VitePress",
@@ -60,18 +60,30 @@ export const config: DefaultTheme.Config = {
         collapsed: true,
         items: [
           {
-            text: "單例模式 (Singleton Pattern)",
-            link: "/learning/design-pattern/2024-07-12-singleton-pattern.md",
-          },
-          {
-            text: "工廠模式 (Factory Pattern)",
-            link: "/learning/design-pattern/2024-07-17-factory-pattern.md",
+            text: "GoF",
+            collapsed: false,
+            items: [
+              {
+                text: "創建型模式 (Creational Patterns)",
+                collapsed: true,
+                items: [
+                  {
+                    text: "單例模式 (Singleton Pattern)",
+                    link: "/learning/design-pattern/gangs-of-four/creational-pattern/2024-07-12-singleton-pattern.md",
+                  },
+                  {
+                    text: "工廠模式 (Factory Pattern)",
+                    link: "/learning/design-pattern/gangs-of-four/creational-pattern/2024-07-17-factory-pattern.md",
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
       {
         text: "Data Structure & Algorithm",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "解題分享",
