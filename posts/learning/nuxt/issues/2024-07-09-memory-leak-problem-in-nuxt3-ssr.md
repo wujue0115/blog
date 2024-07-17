@@ -2,7 +2,7 @@
 title: 在 Nuxt3 SSR 遇到 Memory leak 的問題與解決方法
 description: 這篇文章是關於 Vue I18n 在 Nuxt3 SSR 發生 Memory leak 的問題，並且透過測試找到問題的原因，最後解決方法是改用 Nuxt 官方的 Nuxt I18n 模組。
 date: 2024-07-09
-lastUpdated: 2024-07-09
+lastUpdated: 2024-07-17
 estimatedReadingTime: 5 min
 tags:
   - Nuxt
@@ -41,11 +41,11 @@ node --inspect ./output/server/index.mjs
 
 接著可以打開 Chrome，並在網址列輸入 `chrome://inspect`，可以看到以下畫面。
 
-<img src="/learning/nuxt/chrome-inspect.jpg" />
+<img src="/learning/nuxt/chrome-inspect.jpg" alt="The chrome inspect page" />
 
 點擊 `inspect` 進入開發者工具，然後點擊 `Memory` 頁籤，可以看到記憶體使用情況。
 
-<img src="/learning/nuxt/debug-page.jpg" />
+<img src="/learning/nuxt/debug-page.jpg" alt="The memory page of the Chrome Inspect" />
 
 接下來，如果我們用手動的方式去重整頁面太累了，這裡可以使用 [ab - Apache HTTP server benchmarking tool](https://httpd.apache.org/docs/2.4/programs/ab.html) 來測試，用來測試的指令如下：
 
@@ -62,7 +62,7 @@ ab -n 1000 -c 10 http://localhost:3000/
 
 在發送的過程中，可以看到記憶體使用量一直在上升，發送完後可以點擊 `Take snapshot` 來記錄記憶體使用情況，以下是我連續發送了 3 次每次 1000 個請求的結果：
 
-<img src="/learning/nuxt/memory-snapshot.jpg" />
+<img src="/learning/nuxt/memory-snapshot.jpg" alt="The memory snapshot page of the Chrome Inspect" />
 
 可以看到記憶體使用量一直在上升，到最後就會導致 Memory leak。
 
@@ -109,14 +109,14 @@ node --expose-gc ./output/server/index.mjs
 
 接下來我們來檢查一下剛剛記錄的 `Memory snapshot` 內容，也發現 `i18n` 真的很有可能是造成記憶體上升的原因。
 
-<img src="/learning/nuxt/memory-snapshot-i18n.jpg" />
+<img src="/learning/nuxt/memory-snapshot-i18n.jpg" alt="Show the i18n problem in the memory snapshot page of the Chrome Inspect." />
 
 根據文章的內容加上我們的測試結果，幾乎可以確定我們所遇到的問題跟文章中提到的一樣。在文章中提到他們是使用 [Vue I18n](https://vue-i18n.intlify.dev/) 來做多語系的處理，解決方法則是改用 Nuxt 官方的 [Nuxt I18n](https://nuxt.com/modules/i18n) 模組。而我們專案也在改用 nuxt-i18n 後就解決這個問題了！
 
 :::info 關於在 Nuxt 中使用 Vue I18n
 其實在 `Vue I18n` 官網已經有推薦使用 `Nuxt I18n` 了 ([Nuxt 3 integration](https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html))，如下圖。
 
-<img src="/learning/nuxt/vue-i18n-nuxt3-integration.jpg" />
+<img src="/learning/nuxt/vue-i18n-nuxt3-integration.jpg" alt="The Nuxt 3 integration page in the Vue I18n documentation." />
 :::
 
 ## 結論
