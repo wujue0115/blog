@@ -6,6 +6,7 @@ export const config: DefaultTheme.Config = {
   logo: {
     light: "/logo.svg",
     dark: "/logo-dark.svg",
+    alt: "The logo of Wujue's blog",
   },
   nav: [
     {
