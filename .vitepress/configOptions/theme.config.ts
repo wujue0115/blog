@@ -63,6 +63,10 @@ export const config: DefaultTheme.Config = {
             text: "單例模式 (Singleton Pattern)",
             link: "/learning/design-pattern/2024-07-12-singleton-pattern.md",
           },
+          {
+            text: "工廠模式 (Factory Pattern)",
+            link: "/learning/design-pattern/2024-07-17-factory-pattern.md",
+          },
         ],
       },
       {
