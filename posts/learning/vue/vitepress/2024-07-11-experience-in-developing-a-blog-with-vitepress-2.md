@@ -2,7 +2,7 @@
 title: 使用 VitePress 開發部落格的心得 2 - SEO 篇
 description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 date: 2024-07-11
-lastUpdated: 2024-07-11
+lastUpdated: 2024-07-17
 estimatedReadingTime: 8 min
 tags:
   - Blog
@@ -32,7 +32,7 @@ SEO 中文叫做搜尋引擎最佳化。當開啟瀏覽器輸入關鍵字搜尋�
 
 首先是最基本也是最重要的部分，就是 Title 和 Description。Title 是網頁的標題，Description 是網頁的描述。Title 和 Description 可以讓搜尋引擎更了解網頁的內容，使用者在搜尋關鍵字時也更容易找到這個網頁，同時也是使用者對網頁的第一印象，寫的越好越能吸引使用者點進進去看。
 
-<img src="/learning/vue/title-and-description.jpg" />
+<img src="/learning/vue/title-and-description.jpg" alt="Title and description shown on the Google search page." />
 
 在 VitePress 中，可以直接在文章的 [Frontmatter](https://vitepress.dev/reference/frontmatter-config) 中設定 Title 和 Description，VitePress 會自動將 Title 和 Description meta tag 加入到網頁 head 中。
 
@@ -45,7 +45,7 @@ description: 這篇文章主要是分享我使用 VitePress 開發部落格的�
 
 寫完 Title 和 Description 之後，可以在瀏覽器中檢查網頁的 head，確認 Title 和 Description 是否正確顯示。
 
-<img src="/learning/vue/title-and-description-in-head.jpg" />
+<img src="/learning/vue/title-and-description-in-head.jpg" alt="The title and description are shown in the DevTools HTML head." />
 
 ## Sitemap
 
@@ -71,13 +71,13 @@ Open Graph protocol 是一個由 Facebook 提出的規範，後來也被其他�
 設定了 OG meta tag 之後，當使用者分享網頁到社群平台時，平台會自動抓取 OG meta tag 的內容，展示在分享的內容中，如下圖分別是在 Facebook 和 Line 上分享的效果。
 
 <div class="sm:flex">
-  <img class="sm:w-1/2 object-contain" src="/learning/vue/facebook-og-meta.jpg" />
-  <img class="mt-4 object-contain" sm="mt-0 ml-4 w-1/2" src="/learning/vue/line-og-meta.jpg" />
+  <img class="sm:w-1/2 object-contain" src="/learning/vue/facebook-og-meta.jpg" alt="The OG meta card shows on Facebook." />
+  <img class="mt-4 object-contain" sm="mt-0 ml-4 w-1/2" src="/learning/vue/line-og-meta.jpg" alt="The OG meta card shows on Line." />
 </div>
 
 我在部落格所設定的 OG meta tag 都是透過 `transformPageData` hook 加入到網頁的 head 中的，`transformPageData` 的第一個參數可以設定頁面的 head 內容，如果要在 `Frontmatter` 中設定需要每個頁面去添加，所以我選擇統一在 `transformPageData` 中設定。
 
-添加完 OG meta tag 並重新部署後，如果要檢查 OG meta tag 是否正確顯示，以及想要清除社群平台對 OG meta tag 的快取，可以使用以下工具：
+添加完 OG meta tag 並重新部署後，如果要檢查在社群平台是否正確顯示，以及想要清除社群平台對 OG meta tag 的快取，可以使用以下工具：
 - Facebook: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)。
 - Line: [LINE Page Poker](https://poker.line.naver.jp/)。
 
@@ -91,7 +91,7 @@ Twitter cards 跟 Open Graph Protocol 類似，是由 Twitter 提出的規範，
 
 以下是 `summary_large_image` 的效果 (`summary` 效果我就不呈現了，因為要重新改掉部署最後再改回來，我懶:)，想知道的可以去 Google~)：
 
-<img src="/learning/vue/twitter-card-summary-large-image.jpg" />
+<img src="/learning/vue/twitter-card-summary-large-image.jpg" alt="The Twitter 'summary_large_image' card shows on X." />
 
 同樣的，Twitter 也有提供檢查的工具 [Twitter Cards Validator](https://cards-dev.twitter.com/validator?)，但可惜的是預覽功能被移除了 (詳請閱 [Card Validator - preview removal](https://devcommunity.x.com/t/card-validator-preview-removal/175006))，所以只能透過發文來檢查效果了。
 
