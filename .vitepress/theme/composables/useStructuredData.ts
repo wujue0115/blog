@@ -17,7 +17,7 @@ export const useStructuredData = () => {
     script.value.type = "application/ld+json";
     script.value.textContent = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "NewsArticle",
+      "@type": "BlogPosting",
       headline: data.title,
       image: data.imageList,
       datePublished: data.datePublished,
