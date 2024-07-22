@@ -78,6 +78,16 @@ export const config: DefaultTheme.Config = {
                   },
                 ],
               },
+              {
+                text: "行為型模式 (Behavioral Patterns)",
+                collapsed: true,
+                items: [
+                  {
+                    text: "策略模式 (Strategy Pattern)",
+                    link: "/learning/design-pattern/gangs-of-four/behavioral-pattern/2024-07-22-strategy-pattern.md",
+                  },
+                ],
+              },
             ],
           },
         ],
