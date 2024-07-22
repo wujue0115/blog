@@ -13,7 +13,7 @@ export async function genFeed(config: SiteConfig) {
     link: baseUrl,
     language: "zh-TW",
     image: `${baseUrl}/logo.svg`,
-    favicon: `${baseUrl}/favicon.svg`,
+    favicon: `${baseUrl}/favicon.ico`,
     copyright: "Copyright (c) 2024-present, Wujue",
   });
 
