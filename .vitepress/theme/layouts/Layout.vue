@@ -73,7 +73,7 @@ watch(
     if (!isPost.value) return;
 
     const articleData = {
-      title: frontmatter.value.title,
+      title: frontmatter.value.title + " | Wujue's Blog",
       datePublished: frontmatter.value.date,
       dateModified: frontmatter.value.lastUpdated,
       authorList: [
