@@ -33,9 +33,8 @@ export const useAnalytics = () => {
       createCloudflareAnalyticsScript(),
     ];
 
-    const head = document.getElementsByTagName("head")[0];
     scripts.forEach((script) => {
-      head.appendChild(script);
+      document.head.appendChild(script);
     });
   };
 

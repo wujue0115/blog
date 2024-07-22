@@ -25,15 +25,13 @@ export const useStructuredData = () => {
       author: data.authorList,
     });
 
-    const head = document.getElementsByTagName("head")[0];
-    head.appendChild(script.value);
+    document.head.appendChild(script.value);
   };
 
   const removeArticleScript = () => {
     if (!script.value) return;
 
-    const head = document.getElementsByTagName("head")[0];
-    head.removeChild(script.value);
+    document.head.removeChild(script.value);
     script.value = null;
   };
 
