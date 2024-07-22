@@ -9,12 +9,24 @@ import PostPreview from "../pages/PostPreview.vue";
 import Ripple from "../components/Ripple.vue";
 import DocBefore from "../layouts/DocBefore.vue";
 
+import { useAnalytics } from "../composables/useAnalytics";
+import { useStructuredData } from "../composables/useStructuredData";
+
 const { Layout } = DefaultTheme;
 const { isDark, page, frontmatter } = useData();
+const { addAnalyticsScripts } = useAnalytics();
+const {
+  script: articleScript,
+  addArticleScript,
+  removeArticleScript,
+} = useStructuredData();
 
 const isHome = computed(() => frontmatter.value.page === "home");
 const isNotFound = computed(() => page.value.isNotFound);
 const isPostPreview = computed(() => frontmatter.value.page === "post-preview");
+const isPost = computed(
+  () => !isHome.value && !isNotFound.value && !isPostPreview.value
+);
 
 const enableTransitions = () =>
   "startViewTransition" in document &&
@@ -49,49 +61,35 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   );
 });
 
-const createGoogleAnalyticsScripts = () => {
-  const script1 = document.createElement("script");
-  const script2 = document.createElement("script");
-
-  script1.src = "https://www.googletagmanager.com/gtag/js?id=G-MPYPZ0MSLM";
-
-  script2.textContent = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-MPYPZ0MSLM');
-  `;
-
-  return [script1, script2];
-};
-
-const createCloudflareAnalyticsScript = () => {
-  const script = document.createElement("script");
-
-  script.src = "https://static.cloudflareinsights.com/beacon.min.js";
-  script.setAttribute(
-    "data-cf-beacon",
-    '{"token": "85d6ed7a2cbe45eca284dc0ddaaca257"}'
-  );
-
-  return script;
-};
-
-const addAnalyticsScripts = () => {
-  const scripts = [
-    ...createGoogleAnalyticsScripts(),
-    createCloudflareAnalyticsScript(),
-  ];
-
-  const head = document.getElementsByTagName("head")[0];
-  scripts.forEach((script) => {
-    head.appendChild(script);
-  });
-};
-
 onMounted(() => {
   import.meta.env.PROD && setTimeout(addAnalyticsScripts, 5000);
 });
+
+watch(
+  frontmatter,
+  () => {
+    removeArticleScript();
+
+    if (!isPost.value) return;
+
+    const articleData = {
+      title: frontmatter.value.title,
+      datePublished: frontmatter.value.date,
+      dateModified: frontmatter.value.lastUpdated,
+      authorList: [
+        {
+          "@type": "Person",
+          name: "Wujue",
+          url: "https://github.com/wujue0115",
+        },
+      ],
+    };
+    addArticleScript(articleData);
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 
 <template>
@@ -104,7 +102,7 @@ onMounted(() => {
     <NotFound v-else-if="isNotFound" />
     <PostPreview v-else-if="isPostPreview" />
     <Layout v-else>
-      <template #doc-before><DocBefore v-if="!isPostPreview" /></template>
+      <template #doc-before><DocBefore /></template>
     </Layout>
   </main>
 </template>
