@@ -1,8 +1,8 @@
 ---
 title: 使用 VitePress 開發部落格的心得 2 - SEO 篇
-description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS、Structured data 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 date: 2024-07-11
-lastUpdated: 2024-07-17
+lastUpdated: 2024-07-22
 estimatedReadingTime: 8 min
 tags:
   - Blog
@@ -13,7 +13,7 @@ tags:
 ---
 
 <p hidden>
-在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS、Structured data 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 </p>
 
 ---
@@ -22,7 +22,7 @@ tags:
 
 ## 序
 
-在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS、Structured data 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
 
 ## SEO (Search Engine Optimization)
 
@@ -103,6 +103,32 @@ RSS 是指一種網頁內容的格式，可以讓使用者訂閱網站的內容�
 
 RSS feed 有很多種格式，例如 `RSS`、`Atom`、`JSON` 等等，根據 [What are the differences between RSS, ATOM, and JSON?](https://www.quora.com/What-are-the-differences-between-RSS-ATOM-and-JSON#:~:text=In%20conclusion%2C%20JSON%20is%20a,created%20for%20syndicating%20online%20content.) 的說明，我選擇使用 `Atom` 格式和 `JSON` 格式，前者為 `RSS` 的替代品且有更多的功能，後者則是一個新的 RSS feed 格式，因為是基於 JSON 格式，結構更為簡單，所以越來越多的網站也開始使用。
 
+## Structured data
+
+Structured data 是一種結構化的資料，可以讓搜尋引擎更好的理解網頁的內容 ([SEO必學：Google結構化資料標記（Schema）是什麼？](https://www.yesharris.com/seo-basic/schema/))。結構化資料有不同種類，而我們部落格的文章可以使用 `Article` 這個類型 ([Article structured data](https://developers.google.com/search/docs/appearance/structured-data/article))，接著透過 JavaScript 去添加結構化資料的 script 到網頁 head 中 (詳細可參考 [Generate structured data with JavaScript](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript))。
+
+以下是此篇文章結構化資料的範例：
+
+```html:line-numbers
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "使用 VitePress 開發部落格的心得 2 - SEO 篇 | Wujue's Blog",
+  "datePublished": "2024-07-11T00:00:00.000Z",
+  "dateModified": "2024-07-22T00:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Wujue",
+      "url": "https://github.com/wujue0115"
+    }
+  ]
+}
+</script>
+```
+
+
 ## 結論
 
 這篇文章分享了一些基本的 SEO 技巧，在查找資料的過程學到了很多新知識，才發現 SEO 其實有很多技巧與細節，而且部署後要等待搜尋引擎的爬蟲去檢索，我的部落格大約等了 3 個月才可以在 Google 上搜尋到，真的是一個漫長的過程，最後希望讀者們可以透過這篇文章更了解 SEO。
@@ -122,3 +148,6 @@ RSS feed 有很多種格式，例如 `RSS`、`Atom`、`JSON` 等等，根據 [Wh
 - [Vue.js blog](https://blog.vuejs.org/)
 - [jpmonette/feed](https://github.com/jpmonette/feed)
 - [What are the differences between RSS, ATOM, and JSON?](https://www.quora.com/What-are-the-differences-between-RSS-ATOM-and-JSON#:~:text=In%20conclusion%2C%20JSON%20is%20a,created%20for%20syndicating%20online%20content.)
+- [SEO必學：Google結構化資料標記（Schema）是什麼？](https://www.yesharris.com/seo-basic/schema/)
+- [Article structured data](https://developers.google.com/search/docs/appearance/structured-data/article)
+- [Generate structured data with JavaScript](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript)
