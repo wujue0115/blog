@@ -1,6 +1,6 @@
 ---
 title: 使用 VitePress 開發部落格的心得 2 - SEO 篇
-description: 在上一篇文章中，我們介紹了如何使用 VitePress 快速建立一個部落格。這篇文章則是分享有關 SEO 的部分，添加了 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS、Structured data 等等，透過這些方法來提升部落格在搜尋引擎中的排名。
+description: 這篇文章分享有關 SEO 的部分，包括 Title、Description、Sitemap、Canonical URL、OG meta、Twitter cards meta、RSS、Structured data，透過這些方法來提升部落格在搜尋引擎中的排名。
 date: 2024-07-11
 lastUpdated: 2024-07-22
 estimatedReadingTime: 8 min
