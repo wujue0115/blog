@@ -2,7 +2,7 @@
 title: 策略模式 (Strategy Pattern)
 description: 此文章透過計算機運算的例子來介紹策略模式 (Strategy Pattern) 的概念和實作方式，並提供了用 Class 和 Function 兩種方式來實現策略模式，還介紹了如何使用 Lookup Table 管理策略行為，最後則是使用策略模式封裝表單驗證的 Vue 3 Composable 實作方式。
 date: 2024-07-22
-lastUpdated: 2024-07-22
+lastUpdated: 2024-08-02
 estimatedReadingTime: 8 min
 tags:
   - Strategy Pattern
@@ -390,7 +390,7 @@ console.log(validatedErrorResult.errorRules);
 
 策略模式是非常實用的設計模式，在開發中我們很容易就會遇到相同類型的判斷邏輯，當你覺得判斷邏輯變多變複雜時，就可以考慮使用策略模式來封裝，但要注意不要每個地方都用策略模式，在簡單的情況下直接使用 if-else 或 switch-case 絕對是最快也最直觀的方式。
 
-### 參考資料
+## 參考資料
 - [JavaScript 設計模式與開發實踐](https://www.tenlong.com.tw/products/9787115388889?list_name=srh)
 - [Strategy | Refactoring.Guru](https://refactoring.guru/design-patterns/strategy?source=post_page-----463e894c8714--------------------------------)
 - [Lookup Table](https://en.wikipedia.org/wiki/Lookup_table)

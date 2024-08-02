@@ -2,7 +2,7 @@
 title: 工廠模式 (Factory Pattern)
 description: 此篇文章用故事的方式介紹了三種工廠模式：簡單工廠模式 (Simple Factory Pattern)、工廠方法模式 (Factory Method Pattern) 和抽象工廠模式 (Abstract Factory Pattern)，並透過 TypeScript 實作，希望能幫助讀者更好的理解工廠模式。
 date: 2024-07-17
-lastUpdated: 2024-07-17
+lastUpdated: 2024-08-02
 estimatedReadingTime: 10 min
 tags:
   - Factory Pattern
@@ -473,7 +473,7 @@ const strawberryPuff = strawberryProductFactory.createPuff();
 
 透過這個故事，我們了解了 `工廠模式` 的三種實作方式：`簡單工廠模式`、`工廠方法模式` 和 `抽象工廠模式`，都是很實用的設計模式，也是在開發過程中比較常會遇到的情境，其實只要理解這三種模式的概念，自然而然就會在開發過程中使用，最後感謝讀者耐心的讀完這個故事，希望能幫助你更好的理解 `工廠模式`！
 
-### 參考資料
+## 參考資料
 
 - [TypeScript 設計模式之工廠](https://github.com/brookshi/Blog/blob/master/design%20pattern/TypeScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82.md)
 - [設計模式學習筆記](https://skyyen999.gitbooks.io/-study-design-pattern-in-java/content/)
