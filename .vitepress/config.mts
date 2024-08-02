@@ -7,7 +7,7 @@ import { genFeed } from "./configOptions/genFeed";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Wujue's blog",
-  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
+  head: [["link", { rel: "icon", href: "/favicon.png" }]],
   themeConfig,
   srcDir: "posts",
   vite: viteConfig,
